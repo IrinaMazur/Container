@@ -4,6 +4,11 @@ public class Container <T> {
     public Container() {
         head=null;
     }
+
+    public Container(T data) {
+        head=new Node<>(data);
+    }
+
     public static class Node<T> {
         private final T data;
         private Node<T> next;
@@ -15,7 +20,7 @@ public class Container <T> {
     }
 
     public void add(T data){
-        Node<T> newNode = new Node<T>(data);
+        Node<T> newNode = new Node<>(data);
         Node<T> curNode = head;
         if (head == null){
             head = newNode;
@@ -42,6 +47,24 @@ public class Container <T> {
             curNode = curNode.next;
         }
 
+    }
+
+    public T get(int index){
+        if (index < 0){
+            System.out.println("the index must be greater than 0 ");
+        } else {
+            Node<T> curNode = head;
+            int curInd = 0;
+            while (curNode != null) {
+                if (curInd == index){
+                    return curNode.data;
+                }
+                curNode = curNode.next;
+                curInd++;
+            }
+            System.out.println("there are not enough elements in the container ");
+        }
+        return null;
     }
 
     public void print(){
