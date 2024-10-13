@@ -51,7 +51,7 @@ public class Container <T> {
 
     public T get(int index){
         if (index < 0){
-            System.out.println("the index must be greater than 0 ");
+            System.out.print("the index must be greater than 0 \n");
         } else {
             Node<T> curNode = head;
             int curInd = 0;
@@ -62,7 +62,7 @@ public class Container <T> {
                 curNode = curNode.next;
                 curInd++;
             }
-            System.out.println("there are not enough elements in the container ");
+            System.out.print("there are not enough elements in the container \n");
         }
         return null;
     }
